@@ -2,7 +2,7 @@ module.exports = {
   chainWebpack: (config) => {
     config.plugins.delete("html");
     config.plugins.delete("preload");
-    config.plugins.delete("prefetch")
+    config.plugins.delete("prefetch");
   },
   outputDir: "../wwwroot/bundle",
   filenameHashing: false,
@@ -13,7 +13,7 @@ module.exports = {
     },
     resolve: {
       alias: {
-        vue$: "vue/dist/vue.esm.js",
+        vue$: "vue/dist/vue.esm-browser.prod.js",
       },
     },
   },

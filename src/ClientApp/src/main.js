@@ -1,16 +1,15 @@
-import Vue from "vue";
+import { createApp } from "vue";
+import DemoComponent from "./components/DemoComponent";
+import DemoEventComponent from "./components/DemoEventComponent";
+import mitt from "mitt";
 
-Vue.config.productionTip = false;
+let app = createApp({
+  components: {
+    DemoComponent,
+    DemoEventComponent,
+  },
+});
 
-Vue.component(
-  "demo-component",
-  require("./components/DemoComponent.vue").default
-);
-Vue.component(
-  "demo-event-component",
-  require("./components/DemoEventComponent.vue").default
-);
-
-window.Vue = Vue;
-
-export const bus = new Vue();
+const emitter = mitt();
+app.config.globalProperties.emitter = emitter;
+app.mount("#app");

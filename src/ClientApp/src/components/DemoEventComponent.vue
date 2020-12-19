@@ -2,7 +2,6 @@
   <button v-on:click="click">Click me to send event</button>
 </template>
 <script>
-import { bus } from "../main";
 export default {
   name: "DemoEventComponent",
   data: function() {
@@ -13,7 +12,7 @@ export default {
   methods: {
     click: function() {
       this.timesClicked++;
-      bus.$emit("demoEvent", this.timesClicked);
+      this.emitter.emit("demoEvent", this.timesClicked);
     },
   },
 };

@@ -5,7 +5,6 @@
   </div>
 </template>
 <script>
-import { bus } from "../main";
 export default {
   name: "DemoComponent",
   props: {
@@ -17,7 +16,7 @@ export default {
     };
   },
   created() {
-    bus.$on("demoEvent", (clickCount) => {
+    this.emitter.on("demoEvent", (clickCount) => {
       this.eventMsg = `Clickcount on button in another component: ${clickCount}`;
     });
   },
